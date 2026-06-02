@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-	"os"
 
 	"college-admission-agent-backend/config"
 	"college-admission-agent-backend/routes"

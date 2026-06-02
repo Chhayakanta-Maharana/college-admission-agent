@@ -64,7 +64,7 @@ func ChatWithAgent(c *gin.Context) {
 	}
 
 	// 2. Custom Document Sandbox (Local Granite RAG)
-	
+
 	// 2a. Handle Greetings
 	if isGreeting(req.Question) {
 		prompt := `You are a friendly College Admission Assistant. 
