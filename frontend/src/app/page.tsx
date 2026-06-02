@@ -28,7 +28,7 @@ export default function CollegeAdmissionAgent() {
 
   // Dynamic API Base URL detection
   // Uses NEXT_PUBLIC_API_URL environment variable for deployed backend
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://college-admission-agent-backend.onrender.com";
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://college-admission-agent.onrender.com";
 
   const quickLinks = [
     {
