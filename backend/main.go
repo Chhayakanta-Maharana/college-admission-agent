@@ -4,6 +4,7 @@ import (
 	"log"
 	"os"
 
+	"college-admission-agent-backend/config"
 	"college-admission-agent-backend/routes"
 
 	"github.com/gin-gonic/gin"
@@ -14,6 +15,11 @@ func main() {
 	err := godotenv.Load()
 	if err != nil {
 		log.Println("No .env file found")
+	}
+
+	// Load and validate configuration
+	if err := config.LoadConfig(); err != nil {
+		log.Fatalf("Configuration error: %v", err)
 	}
 
 	r := gin.Default()
@@ -33,11 +39,7 @@ func main() {
 
 	routes.RegisterRoutes(r)
 
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
-	}
-
-	log.Println("Server running on port", port)
-	r.Run(":" + port)
+	cfg := config.GetConfig()
+	log.Println("Server running on port", cfg.Port)
+	r.Run(":" + cfg.Port)
 }
